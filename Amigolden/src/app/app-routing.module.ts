@@ -41,32 +41,32 @@ const routes: Routes = [
   {
     path: RouteNames.users,
     loadChildren: './pages/users-list/users-list.module#UsersListPageModule',
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   },
   {
     path: RouteNames.userDetailFormat,
     loadChildren: './pages/user-detail/user-detail.module#UserDetailPageModule',
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
   },
   {
     path: RouteNames.userEvents,
     loadChildren: './pages/user-events-list/user-events-list.module#UserEventsListPageModule',
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   },
   {
     path: RouteNames.events,
     loadChildren: './pages/events-list/events-list.module#EventsListPageModule',
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   },
   {
     path: RouteNames.eventDetailFormat,
     loadChildren: './pages/event-detail/event-detail.module#EventDetailPageModule',
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   },
   {
     path: RouteNames.enrollmentDetailFormat,
     loadChildren: './pages/enrollment/enrollment.module#EnrollmentPageModule',
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   },
   {
     path: RouteNames.messages,
@@ -78,6 +78,7 @@ const routes: Routes = [
     loadChildren: './pages/messages/messages.module#MessagesPageModule',
     canActivate: [AuthGuard]
   },
+  { path: 'confirm-payment', loadChildren: './pages/confirm-payment/confirm-payment.module#ConfirmPaymentPageModule' },
 ];
 
 @NgModule({

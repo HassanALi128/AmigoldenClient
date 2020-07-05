@@ -1,7 +1,38 @@
 <ion-content padding class="login-background no-scroll">
-	<h3 class="login-tag">Unleash yourself</h3>
+	<!-- <h3 class="login-tag">Unleash yourself</h3> -->
+	<ion-grid class="display-flax">
+		<ion-row class="ion-align-items-center flex-grow-1">
+			<ion-col size="12" class="ion-padding" *ngIf="form">
+				<form [formGroup]="form" (ngSubmit)="submit()">
+					<ion-item lines="none" class="select-item global-height font-size-0-8">
+						<ion-label color="medium">Login Type</ion-label>
+						<ion-select 
+						  placeholder="Select Type" formControlName="provider"
+						  >
+						  <ion-select-option
+							value="StripeConnect" >
+						  StripeConnect
+						  </ion-select-option>
+						  <ion-select-option
+							value="Google">
+							Google
+						  </ion-select-option>
+						</ion-select>
+					  </ion-item>
+					  <ion-item>
+						  <ion-input
+						  formControlName="entryCode" 
+						  type="text" placeholder="Entry Code"></ion-input>
+					  </ion-item>
+					  <div>
+						  <ion-button type="submit()" expand="block" size="large" color="dark">Login</ion-button>
+					  </div>
+				</form>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
 </ion-content>
-<ion-footer no-shadow>
+<!-- <ion-footer no-shadow>
 	<ion-toolbar no-shadow position="bottom">
 		<form #form method="post" class="form-horizontal" [action]="loginUrl">
 			<div>
@@ -15,10 +46,9 @@
 				<button ion-button block (click)="form.submit()" title="Log in using Stripe">
 					Login 
 				</button>
-				<input type="hidden" name="provider" [value]="loginProvider">
 				<input type="text" name="entryCode" placeholder="Entry Code">
 				</p>
 			</div>
 		</form>
 	</ion-toolbar>
-</ion-footer>
+</ion-footer> -->

@@ -7,10 +7,18 @@
   </ion-toolbar>
 </ion-header>
 <ion-content padding>
-  <ion-label>Enroll in {{entity.name}} for {{ eventCostInCents }} Cents</ion-label>
-  <ion-item *ngIf="entityId">
-      <stripe-card (cardToken)="onTokenReceived($event)" [amount]="eventCostInCents" [hasExistingCard]="hasExistingCard">
-      </stripe-card>
-      <button *ngIf="hasExistingCard" ion-button block (click)="enroll(eventCostInCents)">Enroll</button>
-  </ion-item>    
+  <ion-grid class="display-flax">
+    <ion-row class="ion-align-items-start flex-grow-1">
+      <ion-col class="cart-col ion-padding">
+        <ion-label color="dark">Enroll in {{entity?.name}} for {{ eventCostInCents }} Cents</ion-label>
+        <div *ngIf="entityId" class="stripe-card ion-margin-top">
+          <stripe-card class="elements" (cardToken)="onTokenReceived($event)" [amount]="eventCostInCents" [hasExistingCard]="hasExistingCard">
+          </stripe-card>
+          <button *ngIf="hasExistingCard" ion-button block (click)="enroll(eventCostInCents)">Enroll</button>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <!-- <ion-item >
+  </ion-item>     -->
 </ion-content>

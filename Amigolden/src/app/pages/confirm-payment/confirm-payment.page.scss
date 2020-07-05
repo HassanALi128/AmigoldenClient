@@ -1,0 +1,14 @@
+.display-flax{
+    height: 100%;
+}
+.invoice{
+    box-shadow: 1px 1px 5px 0px;
+    border-radius: 1rem;
+    .header-content{
+        border-bottom: 1px solid var(--ion-color-dark);
+    }
+    .align-item-center{
+        display: flex;
+        align-items: center;
+    }
+}

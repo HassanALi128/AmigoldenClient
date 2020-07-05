@@ -3,6 +3,7 @@ import { environment } from 'src/environments/environment';
 import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
 import { Router } from '@angular/router';
 import { Identity } from 'src/app/services/identity/identity.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -10,9 +11,23 @@ import { Identity } from 'src/app/services/identity/identity.service';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-
+  form: FormGroup;
   loginUrl = environment.apiUrl + '/Account/ExternalLogin';
-  constructor(private authManager: AuthenticationService, private identity: Identity, private router: Router) { }
+  constructor(
+    private authManager: AuthenticationService,
+    private identity: Identity, private router: Router,
+    ) {
+      this.form = new FormGroup({
+        provider: new FormControl('', {
+          validators: [Validators.required],
+          updateOn: 'change'
+        }),
+        entryCode : new FormControl('', {
+          validators: [Validators.required],
+          updateOn: 'change'
+        }),
+      });
+     }
 
   ngOnInit() {
     let qs = window.location.search;
@@ -31,5 +46,8 @@ export class LoginPage implements OnInit {
           });
         });
     }
+  }
+  submit() {
+    console.log(this.form.value);
   }
 }

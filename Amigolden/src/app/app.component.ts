@@ -37,6 +37,11 @@ export class AppComponent {
       icon: 'chatbubbles'
     },
     {
+      title: 'Confirm Payment',
+      url: '/confirm-payment',
+      icon: 'cash'
+    },
+    {
       title: 'Logout',
       url: '/login',
       icon: 'log-out'

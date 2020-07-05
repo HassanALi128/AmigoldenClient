@@ -28,6 +28,25 @@ export class EnrollmentPage extends EntityPageBase<Meeting> implements OnInit {
 
   ngOnInit() {
     this.eventService.getDefaultEventCost(this.entityId).subscribe(eventCost => this.eventCostInCents = eventCost);
+    // https://www.amigolden.com/www/enrollments/18
+    // var elements = this.stripePayments.elements();
+    // const style = {
+    //   base: {
+    //     color: '#32325d',
+    //     lineHeight: '24px',
+    //     fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+    //     fontSmoothing: 'antialiased',
+    //     fontSize: '16px',
+    //     '::placeholder': {
+    //       color: '#f4f5f8'
+    //     }
+    //   },
+    //   invalid: {
+    //     color: '#fa755a',
+    //     iconColor: '#fa755a'
+    //   }
+    // };
+    // var card = elements.create('card', {style: style});
   }
 
   onTokenReceived(stripeTokenResponse: any) {

@@ -1,0 +1,29 @@
+.display-flax{
+    height: 100%;
+    .cart-col{
+        box-shadow: 1px 1px 5px 0px;
+        border-radius: 1rem;
+        .stripe-card{
+            color: var(--ion-color-dark);
+            .elements{
+                ion-list {
+                    background: transparent;
+                }
+                button{
+                    padding: 0.5rem;
+                    border-radius: 0.5rem;
+                    margin-top: 0.5rem;
+                }
+                #stripe-card-element.StripeElement.empty {
+                    background: var(--ion-color-light) !important;
+                }
+                #stripe-exp-element.StripeElement.empty {
+                    background: var(--ion-color-light) !important;
+                }
+                #stripe-cvc-element.StripeElement.empty {
+                    background: var(--ion-color-light) !important;
+                }
+            }
+        }
+    }
+}

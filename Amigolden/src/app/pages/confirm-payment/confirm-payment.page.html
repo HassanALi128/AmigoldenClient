@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Confirm Payment</ion-title>
+  </ion-toolbar>
+</ion-header> 
+
+<ion-content>
+  <ion-grid class="display-flax">
+    <ion-row class="ion-align-items-center flex-grow-1 ion-padding" >
+      <ion-col size="12" class="ion-no-padding invoice">
+        <div class="ion-text-center ion-padding header-content">
+          <ion-label>Invoice</ion-label>
+        </div>
+        <div class="align-item-center ion-padding">
+          <div class="w-50 ion-text-left">
+            <ion-label>Event</ion-label>
+          </div>
+          <div class="w-20 ion-text-center">Of</div>
+          <div class="w-40 ion-text-right">Total</div>
+        </div>
+        <div class="align-item-center ion-padding">
+          <div class="w-50 ion-text-left">
+            <ion-label>Restaurant</ion-label>
+          </div>
+          <div class="w-20 ion-text-center">{{5 |currency}}</div>
+          <div class="w-30 ion-text-right">{{10 |currency}}</div>
+        </div>
+        <div class="align-item-center ion-padding">
+          <div class="w-50 ion-text-left">
+            <ion-label>Restaurant two</ion-label>
+          </div>
+          <div class="w-20 ion-text-center">{{3 |currency}}</div>
+          <div class="w-30 ion-text-right">{{15 |currency}}</div>
+        </div>
+        <div class="ion-text-right ion-padding">
+          <ion-label>{{25 |currency}}</ion-label>
+        </div>
+        <div class="ion-text-left ion-padding">
+          <ion-label>
+            Total Event Amount is: {{25 |currency}}
+          </ion-label>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
