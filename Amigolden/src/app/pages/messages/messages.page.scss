@@ -127,4 +127,143 @@ page-messages {
       margin: auto;
     }
   }
-  
+
+ion-footer{
+  padding: 0.5rem;
+  .message-div{
+    textarea{
+      width: 100%;
+      border: 1px solid var(--ion-color-medium);
+      border-radius: 1rem;
+      padding: 0.5rem 0.5rem 0.5rem 1rem;
+      outline: none;
+    }
+  }
+  ion-button{
+    // --background: transparent;
+    // --box-shadow: none;
+  }
+}
+
+.message {
+  position: relative;
+  padding: 7px 0;
+
+  .user-img {
+    position: absolute;
+    border-radius: 45px;
+    width: 45px;
+    height: 45px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.36);
+  }
+
+  .msg-detail {
+    width: 100%;
+    display: inline-block;
+
+    p {
+      margin: 0;
+    }
+
+    .msg-info {
+      p {
+        font-size: .8em;
+        color: #888;
+      }
+    }
+
+    .msg-content {
+      position: relative;
+      // margin-top: 5px;
+      border-radius: 5px;
+      // padding: 8px;
+      border: 1px solid #ddd;
+      // color: #fff;
+      width: auto;
+      max-width: 80%;
+
+      span.triangle {
+        background-color: #fff;
+        border-radius: 2px;
+        height: 8px;
+        width: 8px;
+        top: 12px;
+        display: block;
+        border-style: solid;
+        border-color: #ddd;
+        border-width: 1px;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+        position: absolute;
+      }
+    }
+  }
+  &.left {
+    .msg-content {
+      background-color: var(--ion-color-secondary);
+      float: left;
+    }
+
+    .msg-detail {
+      background: white;
+      width: 80%;
+      box-shadow: 0px 5px 12px 3px var(--app-item-shadow-color);
+      padding: 1rem;
+      margin-left: 1rem;
+      border-radius: 2rem 2rem 2rem 0;
+    }
+
+    .user-img {
+      left: 0;
+    }
+
+    .msg-content {
+      color: #343434;
+
+      span.triangle {
+        border-top-width: 0;
+        border-right-width: 0;
+        left: -5px;
+      }
+    }
+  }
+  &.right {
+    .msg-detail {
+      background: var(--ion-color-primary);
+      width: 80%;
+      box-shadow: 0px 5px 12px 3px var(--app-item-shadow-color);
+      padding: 1rem;
+      margin-left: 1rem;
+      border-radius: 2rem 2rem 0 2rem;
+      color: var(--ion-color-light);
+      p{
+        color: var(--ion-color-light) !important;
+      }
+      .msg-info {
+        text-align: right;
+      }
+    }
+    .user-img {
+      right: 0;
+    }
+
+    ion-spinner {
+      position: absolute;
+      right: 10px;
+      top: 50px;
+    }
+
+    .msg-content {
+      background-color: var(--preview-button-color);
+      float: right;
+
+      span.triangle {
+        background-color: var(--preview-button-color);
+        border-bottom-width: 0;
+        border-left-width: 0;
+        right: -5px;
+      }
+    }
+
+  }
+}

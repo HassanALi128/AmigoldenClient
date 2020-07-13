@@ -71,12 +71,12 @@ const routes: Routes = [
   {
     path: RouteNames.messages,
     loadChildren: './pages/messages-list/messages-list.module#MessagesListPageModule',
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   },
   {
     path: RouteNames.messageDetailFormat,
     loadChildren: './pages/messages/messages.module#MessagesPageModule',
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   },
   { path: 'confirm-payment', loadChildren: './pages/confirm-payment/confirm-payment.module#ConfirmPaymentPageModule' },
 ];

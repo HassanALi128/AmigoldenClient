@@ -85,7 +85,7 @@ export class MessagesPage extends PageBase implements OnInit {
         }
 
         this.identityProvider.getCurrentUser().then(u => {
-            entity.$$owner = (u.id.toString() === entity.senderUserId ? 'mine' : 'other');
+            entity.owner = (u.id.toString() === entity.senderUserId ? 'mine' : 'other');
         }).catch(err => {
             console.log(err);
         });

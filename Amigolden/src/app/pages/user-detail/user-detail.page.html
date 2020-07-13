@@ -4,38 +4,70 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-buttons slot="end">
-      <button [hidden]="!editOptions.canEdit || editOptions.isEditing" (click)="editOptions.toggleEdit()" ion-button>
+      <ion-button [hidden]="!editOptions.canEdit || editOptions.isEditing" (click)="editOptions.toggleEdit()">
         <ion-icon name="create"></ion-icon>
         &nbsp;Edit
-      </button>
-      <button [hidden]="!editOptions.isEditing" class="success" (click)="editOptions.save()" ion-button>
+      </ion-button>
+      <ion-button [hidden]="!editOptions.isEditing" class="success" (click)="editOptions.save()">
         <ion-icon name="save"></ion-icon>
         &nbsp;Save
-      </button>
-      <button [hidden]="!editOptions.isEditing" class="warn" (click)="editOptions.toggleEdit()" ion-button>
+      </ion-button>
+      <ion-button [hidden]="!editOptions.isEditing" class="warn" (click)="editOptions.toggleEdit()">
         <ion-icon name="save"></ion-icon>
         &nbsp;Cancel
-      </button>
+      </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 <ion-content padding-horizontal class="fix-header no-scroll">
   <ion-grid>
     <ion-row>
-      <ion-col text-center>
+      <ion-col size="6" offset="3" class="ion-text-center">
         <div class="profile-picture-mask">
-          <span>
-              <img class="img-circle" [src]="entity?.profilePictureUrl" width="250" height="250">
+          <div class="img-div">
+            <img [src]="entity?.profilePictureUrl ? entity?.profilePictureUrl : 'assets/images/userProfile.png'" width="250" height="250">
+            <ion-button color="secondary" *ngIf="editOptions.canEdit" (click)="showProfilePictureModal()">
+              <ion-icon slot="icon-only" name="add"></ion-icon>
+            </ion-button>
+          </div>
+          <!-- <span>
           </span>
-          <button class="change-picture-link" *ngIf="editOptions.canEdit" (click)="showProfilePictureModal()">
+          <ion-button class="change-picture-link" *ngIf="editOptions.canEdit" (click)="showProfilePictureModal()">
             Change Profile Picture
-          </button>
+          </ion-button> -->
         </div>
       </ion-col>
     </ion-row>
   </ion-grid>
   <ion-list>
-    <inline-edit [(ngModel)]="entity && entity.firstName"
+    <ion-item>
+      <ion-label position="floating">First Name</ion-label>
+      <ion-input
+        [(ngModel)]="entity && entity.firstName"
+        [required]="true" 
+        type="text"
+        [disabled]="editOptions"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Last Name</ion-label>
+      <ion-input
+        [(ngModel)]="entity && entity.lastName"
+        [required]="true" 
+        type="text"
+        [disabled]="editOptions"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input
+      [(ngModel)]="entity && entity.email"
+        [required]="true" 
+        type="text"
+        [disabled]="editOptions"
+      ></ion-input>
+    </ion-item>
+    <!-- <inline-edit [(ngModel)]="entity && entity.firstName"
                   label="First Name:" [editOptions]="editOptions"
                   [required]="true" type="text">
     </inline-edit>
@@ -46,12 +78,14 @@
     <inline-edit [(ngModel)]="entity && entity.email"
                   label="Email:" [editOptions]="editOptions"
                   [required]="true" type="text" padding-bottom>
-    </inline-edit>
+    </inline-edit> -->
   </ion-list>
-  <ion-list-header>
-    <button (click)="navigateToMessages(entityId)" ion-button full color="secondary">
-      Message
-      <ion-icon name="Chatboxes"></ion-icon>
-    </button>
-  </ion-list-header>
+  <div>
+    <ion-button (click)="navigateToMessages(entityId)" expand="block" color="secondary">
+      <ion-label>Message</ion-label>
+      <ion-icon name="Chatboxes" slot="start"></ion-icon>
+    </ion-button>
+  </div>
+  <!-- <ion-list-header>
+  </ion-list-header> -->
 </ion-content>

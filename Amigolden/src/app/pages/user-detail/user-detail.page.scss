@@ -1,6 +1,30 @@
 .profile-picture-mask{
     -webkit-clip-path: circle(128px at 50% 45%);
     clip-path: circle(128px at 50% 45%);
+    .img-div{
+        height: 13rem;
+        width: 100%;
+        position: relative;
+        margin-top: 2rem;
+        img{
+            border-radius: 50%;
+            height: 10rem;
+            width: 100%;
+        }
+        ion-button{
+            position: absolute;
+            bottom: 3.5rem;
+            right: 0.5rem;
+            border-radius: 100%;
+            --border-radius: 100%;
+            --padding-bottom: 0;
+            --padding-end: 0;
+            --padding-start: 0;
+            --padding-top: 0;
+            height: 2rem;
+            width: 2rem;
+        }
+    }
 }
 
 .img-circle {

@@ -5,11 +5,29 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-<ion-content class="no-scroll header-fix">
+<ion-content class="header-fix ion-padding-horizontal">
   <app-list-base #pageListBase class="messages-page-content" [config]="config" [template]="itemTemplate"></app-list-base>
 </ion-content>
-<ion-footer>
-  <ion-toolbar color="whatsapp" class="messages-page-footer" position="bottom">
+<ion-footer class="ion-no-border">
+  <div class="align-items-center">
+    <div class="w-80 message-div">
+      <textarea
+        placeholder="Type a message"
+        [(ngModel)]="messageText"
+        >
+      </textarea>
+    </div>
+    <div class="w-20 ion-text-center">
+      <ion-button *ngIf="messageText" class="message-editor-button" (click)="sendTextMessage()">
+        <ion-icon color="secondary" slot="icon-only" name="send"></ion-icon>
+      </ion-button>
+
+      <ion-button color="secondary" *ngIf="!messageText" class="message-editor-button">
+        <ion-icon slot="icon-only" name="mic"></ion-icon>
+      </ion-button>
+    </div>
+  </div>
+  <!-- <ion-toolbar color="whatsapp" class="messages-page-footer" position="bottom">
     <ion-input [(ngModel)]="messageText" class="message-editor" placeholder="Type a message"></ion-input>
     <ion-buttons end>
       <button ion-button icon-only *ngIf="messageText" class="message-editor-button" (click)="sendTextMessage()">
@@ -20,14 +38,33 @@
         <ion-icon name="mic"></ion-icon>
       </button>
     </ion-buttons>
-  </ion-toolbar>
+  </ion-toolbar> -->
 </ion-footer>
 
 <ng-template #itemTemplate let-entity="entity">
-<ion-item no-lines class="day-wrapper"> 
-  <div [class]="'message message-' + entity.$$owner">
+  <div
+  class="message"
+  [class.right]="(entity.owner === 'mine')"
+  [class.left]="(entity.owner !== 'mine')"
+  [class.ion-text-right]="true">
+<!-- <img
+ class="user-img"
+ [src]="(msg.actionUser === userService.currentUser.id ? userService.currentUser.image : meta.otherUser.image)  || '../../../assets/default.jpg'"> -->
+<div class="msg-detail">
+ <p class="line-breaker" >{{'My Message'}}</p>
+ <!-- <div class="msg-content">
+ </div> -->
+ <div class="msg-info font-size-0-7">
+   <p>
+     {{getCreated('2020-07-13T00:26:40.147')}}
+   </p>
+ </div>
+</div>
+</div>
+<!-- <ion-item lines="none" class="day-wrapper">
+  <div [class]="'message message-' + entity.owner">
     <div class="message-content message-content-text">{{entity.messageText}}</div>
     <span class="message-timestamp">{{ getCreated(entity.created) }}</span>
   </div>
-</ion-item>
+</ion-item> -->
 </ng-template>
