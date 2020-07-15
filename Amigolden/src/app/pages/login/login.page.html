@@ -3,36 +3,46 @@
 	<ion-grid class="display-flax">
 		<ion-row class="ion-align-items-center flex-grow-1">
 			<ion-col size="12" class="ion-padding" *ngIf="form">
-				<form [formGroup]="form" (ngSubmit)="submit()">
+				<form 
+					[formGroup]="form" 
+					[action]="loginUrl" 
+					method='POST'
+					(ngSubmit)="submit()"
+					#myForm
+					ngNoForm>
 					<ion-item lines="none" class="select-item global-height font-size-0-8">
 						<ion-label color="medium">Login Type</ion-label>
 						<ion-select 
 						  placeholder="Select Type" formControlName="provider"
 						  >
 						  <ion-select-option
-							value="StripeConnect" >
+							value="StripeConnect"
+							name="StripeConnect" >
 						  StripeConnect
 						  </ion-select-option>
 						  <ion-select-option
-							value="Google">
+							value="Google"
+							name="Google">
 							Google
 						  </ion-select-option>
 						</ion-select>
 					  </ion-item>
 					  <ion-item>
 						  <ion-input
-						  formControlName="entryCode" 
+						  formControlName="entryCode"
+						  name="entryCode" 
 						  type="text" placeholder="Entry Code"></ion-input>
 					  </ion-item>
 					  <div>
-						  <ion-button type="submit()" expand="block" size="large" color="dark">Login</ion-button>
+					  		<button class="ion-hide" type="submit" [hidden]="'true'"></button>
+							<ion-button type="submit" expand="block" size="large" color="dark">Login</ion-button>
 					  </div>
 				</form>
 			</ion-col>
 		</ion-row>
 	</ion-grid>
 </ion-content>
-<ion-footer no-shadow>
+<!-- <ion-footer no-shadow>
 	<ion-toolbar no-shadow position="bottom">
 		<form #form method="post" class="form-horizontal" [action]="loginUrl">
 			<div>
@@ -51,4 +61,4 @@
 			</div>
 		</form>
 	</ion-toolbar>
-</ion-footer>
+</ion-footer> -->

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterContentInit, AfterViewInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
 import { Router } from '@angular/router';
@@ -10,8 +10,9 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
-export class LoginPage implements OnInit {
+export class LoginPage implements OnInit, AfterViewInit {
   form: FormGroup;
+  @ViewChild('myForm', {static: false}) myForm: ElementRef;
   loginUrl = environment.apiUrl + '/Account/ExternalLogin';
   constructor(
     private authManager: AuthenticationService,
@@ -28,6 +29,9 @@ export class LoginPage implements OnInit {
         }),
       });
      }
+  ngAfterViewInit(): void {
+    
+  }
 
   ngOnInit() {
     let qs = window.location.search;
@@ -48,6 +52,7 @@ export class LoginPage implements OnInit {
     }
   }
   submit() {
-    console.log(this.form.value);
+    this.myForm.nativeElement.submit();
+    // console.log(this.form.value);
   }
 }
