@@ -5,11 +5,7 @@
 			<ion-col size="12" class="ion-padding" *ngIf="form">
 				<form 
 					[formGroup]="form" 
-					[action]="loginUrl" 
-					method='POST'
-					(ngSubmit)="submit()"
-					#myForm
-					ngNoForm>
+					(ngSubmit)="submit()">
 					<ion-item lines="none" class="select-item global-height font-size-0-8">
 						<ion-label color="medium">Login Type</ion-label>
 						<ion-select 
