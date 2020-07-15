@@ -12,12 +12,11 @@ import { HttpClient } from '@angular/common/http';
 })
 export class LoginPage implements OnInit {
   form: FormGroup;
+  provider = '';
   loginUrl = environment.apiUrl + '/Account/ExternalLogin';
   constructor(
     private authManager: AuthenticationService,
-    private identity: Identity, private router: Router,
-    private http: HttpClient
-    ) {
+    private identity: Identity, private router: Router) {
       this.form = new FormGroup({
         provider: new FormControl('', {
           validators: [Validators.required],
@@ -49,14 +48,6 @@ export class LoginPage implements OnInit {
     }
   }
   submit() {
-    const formData = new FormData();
-    formData.append('provider', this.form.value.provider);
-    formData.append('entryCode', this.form.value.entryCode);
-    // debugger;
-    this.http.post<any>(this.loginUrl, formData).subscribe(
-      (res) => console.log(res),
-      (err) => console.log(err)
-    );
     // this.myForm.nativeElement.submit();
   }
 }
