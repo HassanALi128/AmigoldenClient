@@ -26,6 +26,9 @@
         <div class="profile-picture-mask">
           <div class="img-div">
             <img [src]="entity?.profilePictureUrl ? entity?.profilePictureUrl : 'assets/images/userProfile.png'" width="250" height="250">
+            <ion-button color="secondary">
+              <ion-icon slot="icon-only" name="add"></ion-icon>
+            </ion-button>
             <ion-button color="secondary" *ngIf="editOptions.canEdit" (click)="showProfilePictureModal()">
               <ion-icon slot="icon-only" name="add"></ion-icon>
             </ion-button>

@@ -38,3 +38,21 @@
     top: -40px;
     margin: auto;
 }
+
+@media screen and (min-width : 425px){
+    .profile-picture-mask{
+        clip-path: none;
+        .img-div{
+            height: 10rem;
+            width: 10rem;
+            margin: auto;
+            margin-top: 2rem;
+            ion-button{
+                bottom: 1.5rem;
+                right: -0.5rem;
+            }
+        }
+    }
+
+
+}
