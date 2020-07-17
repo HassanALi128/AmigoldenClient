@@ -32,7 +32,8 @@ export class UserDetailPage extends DetailPageBase<User> implements OnInit {
   }
 
   ngOnInit() {
-    this.identity.getCurrentUser().then((u) => { this.editOptions.canEdit = this.entityId === u.id; });
+    // this.identity.getCurrentUser().then((u) => { this.editOptions.canEdit = this.entityId === u.id; });
+    this.editOptions.isEditing = false;
   }
 
   reloadProfilePictureUrl() {
