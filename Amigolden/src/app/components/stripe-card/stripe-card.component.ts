@@ -1,6 +1,6 @@
 import { Input, OnInit,
   ViewChild, AfterViewInit, OnDestroy,
-  ElementRef, ChangeDetectorRef, Output, EventEmitter, Component  } from '@angular/core';
+  ElementRef, ChangeDetectorRef, Output, EventEmitter, Component, Renderer2  } from '@angular/core';
 import { NgForm } from '@angular/forms';
 declare var stripe: any;
 declare var elements: any;
@@ -24,7 +24,9 @@ export class StripeCardComponent implements AfterViewInit, OnDestroy {
   cardHandler = this.onChange.bind(this);
   error: string;
 
-  constructor(private cd: ChangeDetectorRef) {
+  constructor(
+    private cd: ChangeDetectorRef,
+    private render: Renderer2) {
   }
 
   ngAfterViewInit() {

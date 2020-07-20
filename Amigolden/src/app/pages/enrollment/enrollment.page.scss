@@ -5,6 +5,12 @@
         border-radius: 1rem;
         .stripe-card{
             color: var(--ion-color-dark);
+            form {
+                button{
+                    padding: 1rem;
+                    background: red;
+                }
+            }
             .elements{
                 ion-list {
                     background: transparent;

@@ -205,11 +205,11 @@ ion-footer{
     }
 
     .msg-detail {
-      background: white;
-      width: 80%;
+      background: var(--ion-item-background);
+      width: 75%;
       box-shadow: 0px 5px 12px 3px var(--app-item-shadow-color);
       padding: 1rem;
-      margin-left: 1rem;
+      margin-left: 3rem;
       border-radius: 2rem 2rem 2rem 0;
     }
 
@@ -230,10 +230,10 @@ ion-footer{
   &.right {
     .msg-detail {
       background: var(--ion-color-primary);
-      width: 80%;
+      width: 75%;
       box-shadow: 0px 5px 12px 3px var(--app-item-shadow-color);
       padding: 1rem;
-      margin-left: 1rem;
+      margin-right: 3rem;
       border-radius: 2rem 2rem 0 2rem;
       color: var(--ion-color-light);
       p{

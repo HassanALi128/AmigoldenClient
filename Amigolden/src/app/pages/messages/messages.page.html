@@ -5,7 +5,45 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-<ion-content class="header-fix ion-padding-horizontal">
+<ion-content class="header-fix ion-padding-horizontal ion-padding-top">
+
+  <!-- If i miss something kindly check from this code commented code is tested. but bellow code is not -->
+
+  <!-- <div
+  class="message"
+  [class.left]="true"
+  [class.ion-text-right]="false">
+    <img
+    class="user-img"
+    [src]="'assets/images/userProfile.png'">
+    <div class="msg-detail">
+      <p class="line-breaker" >{{'Other Message'}}</p>
+      <div class="msg-info font-size-0-7">
+        <p>
+          {{getCreated('2020-07-13T00:26:40.147')}}
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+  class="message"
+  [class.right]="true"
+  [class.ion-text-right]="true">
+    <img
+    class="user-img"
+    [src]="'assets/images/userProfile.png'">
+    <div class="msg-detail">
+      <p class="line-breaker" >{{'My Message'}}</p>
+      <div class="msg-info font-size-0-7">
+        <p>
+          {{getCreated('2020-07-13T00:26:40.147')}}
+        </p>
+      </div>
+    </div>
+  </div> -->
+
+
+
   <app-list-base #pageListBase class="messages-page-content" [config]="config" [template]="itemTemplate"></app-list-base>
 </ion-content>
 <ion-footer class="ion-no-border">
@@ -46,21 +84,19 @@
   class="message"
   [class.right]="(entity.owner === 'mine')"
   [class.left]="(entity.owner !== 'mine')"
-  [class.ion-text-right]="true">
-<!-- <img
- class="user-img"
- [src]="(msg.actionUser === userService.currentUser.id ? userService.currentUser.image : meta.otherUser.image)  || '../../../assets/default.jpg'"> -->
-<div class="msg-detail">
- <p class="line-breaker" >{{'My Message'}}</p>
- <!-- <div class="msg-content">
- </div> -->
- <div class="msg-info font-size-0-7">
-   <p>
-     {{getCreated('2020-07-13T00:26:40.147')}}
-   </p>
- </div>
-</div>
-</div>
+  [class.ion-text-right]="(entity.owner === 'mine')">
+    <img
+    class="user-img"
+    [src]="'assets/images/userProfile.png'">
+    <div class="msg-detail">
+      <p class="line-breaker" >{{'My Message'}}</p>
+      <div class="msg-info font-size-0-7">
+        <p>
+          {{getCreated('2020-07-13T00:26:40.147')}}
+        </p>
+      </div>
+    </div>
+  </div>
 <!-- <ion-item lines="none" class="day-wrapper">
   <div [class]="'message message-' + entity.owner">
     <div class="message-content message-content-text">{{entity.messageText}}</div>

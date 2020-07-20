@@ -10,9 +10,12 @@
   <ion-grid class="display-flax">
     <ion-row class="ion-align-items-start flex-grow-1">
       <ion-col class="cart-col ion-padding">
-        <ion-label color="dark">Enroll in {{entity?.name}} for {{ eventCostInCents }} Cents</ion-label>
-        <div *ngIf="entityId" class="stripe-card ion-margin-top">
-          <stripe-card class="elements" (cardToken)="onTokenReceived($event)" [amount]="eventCostInCents" [hasExistingCard]="hasExistingCard">
+        <ion-label color="dark">Enroll in {{entity?.name}} for {{ eventCostInCents ? (eventCostInCents/ 100) : 0  | currency }} Cents</ion-label>
+        <div *ngIf="entityId" class="stripe-card">
+          <stripe-card
+            (cardToken)="onTokenReceived($event)" 
+            [amount]="eventCostInCents" 
+            [hasExistingCard]="hasExistingCard">
           </stripe-card>
           <button *ngIf="hasExistingCard" ion-button block (click)="enroll(eventCostInCents)">Enroll</button>
         </div>

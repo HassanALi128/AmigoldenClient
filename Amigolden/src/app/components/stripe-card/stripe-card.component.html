@@ -7,9 +7,9 @@
   <form #checkout="ngForm" (ngSubmit)="onSubmit(checkout)" class="checkout">
   <div class="form-row" [hidden]="useExisting">
       <label for="card-info">Card Info</label>
-      <div id="card-info" #cardInfo></div>
+      <div id="card-info" class="ion-margin-top" #cardInfo></div>
   
       <div id="card-errors" role="alert" *ngIf="error">{{ error }}</div>
-      <button type="submit">Pay ${{ amount }}</button>
+      <button type="submit">Pay {{ eventCostInCents ? (eventCostInCents/ 100) : (0)  | currency }}</button>
   </div>
 </form>
